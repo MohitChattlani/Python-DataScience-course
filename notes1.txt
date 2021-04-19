@@ -1,0 +1,56 @@
+List comprehension
+
+x=[1,2,3,4]
+
+[num**2 for num in x]
+
+Map and filter fns
+
+def cross2(num):
+	return num*2
+
+list(map(cross2,x)) - list fn converts it to list object
+
+Lambda expressions- Anonymous fns. Rewriting a function into a simple line of clean code. 
+
+lambda num: num*2
+
+
+Filter fns: Filter out elements from a sequence.
+Filter must use a fn that returns a boolean value so that it can filter out elems
+
+#filters out even elements in list
+list(filter(lambda x:x%2==0,sequence))
+
+<string>.split()
+<string>.upper()
+
+same as js
+
+
+Numpy arrays
+
+1D vectors
+2D matrices
+
+Both are called as arrays
+
+import numpy as np
+#1D
+arr=np.array([1,2,3])
+#2D
+np.array([1,2,3],[4,5,6])
+
+Built in methods to create arrays
+
+np.arange(0,10) #[0,1,2,3,...9]
+
+np.zeros(3) [0,0,0]
+
+np.zeros((5,5)) passing a tuple  [[0,0,0,0,0,0],[],[]] 
+
+np.ones(3)
+
+np.linspace(0,5,10)  (start,stop,no. of evenly spaced elements)
+
+np.eye(4) #it will create identity matrix of 4*4 
