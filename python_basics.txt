@@ -28,29 +28,3 @@ list(filter(lambda x:x%2==0,sequence))
 same as js
 
 
-Numpy arrays
-
-1D vectors
-2D matrices
-
-Both are called as arrays
-
-import numpy as np
-#1D
-arr=np.array([1,2,3])
-#2D
-np.array([1,2,3],[4,5,6])
-
-Built in methods to create arrays
-
-np.arange(0,10) #[0,1,2,3,...9]
-
-np.zeros(3) [0,0,0]
-
-np.zeros((5,5)) passing a tuple  [[0,0,0,0,0,0],[],[]] 
-
-np.ones(3)
-
-np.linspace(0,5,10)  (start,stop,no. of evenly spaced elements)
-
-np.eye(4) #it will create identity matrix of 4*4 

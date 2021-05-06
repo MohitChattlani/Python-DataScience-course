@@ -1,0 +1,34 @@
+Normal indexing/Slicing in np array same as list
+
+Difference is Broadcasting
+
+arr=np.arange(0,10)
+
+arr[0:5]=100
+
+slice_of_arr=arr[0:5]
+
+slice_of_arr[:]=100 #this changes slice_of_arr and arr both. Data not copied but a view of orignal array. Done by numpy to avoid memory issues with large arrays.
+
+#COPY Method of array for copy and not reference to orignal arrays
+
+arr_copy=arr.copy()
+
+arr_2d=np.array([[1,2,3],[4,5,6]])
+
+arr_2d[1][1] (Double bracket), arr_2d[1,1] (Single bracket)
+
+Slicing in 2D
+
+arr_2d[:2,1:]   
+
+Boolean array from array
+[0,1,5,7]
+bool_arr=arr > 5  [False,False,False,True]
+
+#Use the bool_arr to conditionally select elements from orignal array
+arr[bool_arr]   [7]
+
+#Combining 2 steps in 1 step
+arr[arr>5]
+
