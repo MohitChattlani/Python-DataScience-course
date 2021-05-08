@@ -1,0 +1,11 @@
+Pandas
+
+*Open source built on top of numpy
+*fast analysis, data cleaning, preparation
+*great performance+productivity
+*built-in visualization
+*data from wide variety sources
+
+conda install pandas
+
+pip install pandas

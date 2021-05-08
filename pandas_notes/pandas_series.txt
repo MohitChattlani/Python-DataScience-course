@@ -1,0 +1,48 @@
+Series is similar to numpy array
+
+Difference- It can be accessed by labels i.e. indexed by labels
+
+labels=['a','b','c']
+
+my_data=[10,20,30]
+
+arr=np.array(my_data)
+
+d={'a':10,'b':20,'c':30}
+
+#passing list
+pd.Series(data=my_data)  #by default labels come as 0,1,2
+
+pd.Series(data=my_data,index=labels) #here labels come as a,b,c
+
+pd.Series(my_data,labels)
+
+#passing Numpy array
+
+pd.Series(arr,labels)
+
+#passing Dict
+
+pd.Series(d) #here pandas automatically keys as labels, values as data
+
+Diff2- Pandas series can hold a variety of object types
+
+#can be strings
+
+pd.Series(data=labels)
+
+#can store reference to fns as well
+
+pd.Series(data=[sum,print,len]) 
+
+#Using a series is understanding index, indexed use for fast lookups like hash table, dictionary
+
+ser1=pd.Series(my_data,labels)
+
+ser2=pd.Series(my_data,labels)
+
+ser['a'] will give 10
+
+ser1+ser2 will add data on the basis of labels. Ints converted to floats so that we don't lose infon.
+
+if labels don't match it will give Nan
