@@ -1,0 +1,45 @@
+np.random.seed(0) makes the random numbers predictable
+
+With the seed reset (every time), the same set of random numbers will appear every time.
+
+
+pd.DataFrame(data,index,columns)
+df=pd.DataFrame(np.random.randn(5,2),['A','B','C','D','E'],['X','Y'])
+	X    Y
+A   1.76  0.21
+B
+C
+D
+E
+
+Each column is a pandas series that share an index.
+
+Indexing/Selection 
+
+df['X'] //1 Series
+
+df['Y'] //2 Series
+
+df['X']['A'] //For element
+
+df.X  //2nd method to get columnname but don't do as you do df.methodname() mostly to not confuse pandas
+
+df[['X','Y']] // fetching multiple columns gives us dataframe
+
+df['new']=df['X']+df['Y'] //creating a new column
+
+df.drop('new',axis=1) //axis=0 represents rows, axis=1 represents columns
+
+df.drop('new',axis=1,inplace=True) //for dropping inplace
+
+df.drop('E',axis=0) //for deleting rows by default also axis is 0
+
+df.shape  //(5,4) (rows,columns) therefore 0 are rows and 1 are columns	
+
+df.loc['A'] // for fetching rows returns a series i.e columns are series and rows are also Series
+
+df.iloc[0] //numerical index of row
+
+df.loc['B','Y'] //single value
+
+df.loc[['A','B'],['X','Y']] //multiple rows and multiple columns

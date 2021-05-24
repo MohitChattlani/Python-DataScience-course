@@ -1,0 +1,30 @@
+Multi index and index hierarchy
+
+hier_index=[('G1',1),('G1',2),('G2',1),('G2',2)]
+
+hier_index=pd.MultiIndex.from_tuples(hier_index)
+
+df=pd.DataFrame(np.random.randn(5,2),hier_index,['X','Y'])
+
+	  A   B
+G1 1
+
+   2
+
+G2 1
+
+   2
+
+//call from outside index to inside index
+df.loc['G1']
+
+df.loc['G1'].loc[1]
+
+df.index.names //to get names of index
+
+df.index.names=['Groups','Num']
+
+//For cross-section of rows and columns for multi level index
+//when you want to index from inside index i.e. skipping outside index xs is helpful. Tricky for loc
+
+df.xs(1,level='Num')   

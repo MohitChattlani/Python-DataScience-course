@@ -1,0 +1,35 @@
+Conditional Selection
+
+df=pd.DataFrame(np.random.randn(5,2),['A','B','C','D','E'],['X','Y'])
+	X    Y
+A   1.76  0.21
+B
+C
+D
+E
+
+booldf = df > 0  //Will give us dataframe of boolean values
+
+df[booldf] //Values where true and nulls where it happen to be false
+
+df[df>0] //same result as above
+
+df['X']>0 //Series of boolean values
+
+resultdf=df[df['X']>0] //you will get only rows that happen to be true- Used a lot
+
+df[df['X']>0]['Y'] //taking Y column of above df
+
+df[(df['X']>0) and (df['Y']>1)] //this gives error(Truth value of series is ambiguous). and can only work for simple boolean vals. It gets confused when series of boolean vals are compared.
+
+df[(df['X']>0) & (df['Y']>1)] //& gives correct output | for OR
+
+Index
+
+df.reset_index()  // index A,B,C resets to column. Actual index to 0,1,2,3,4
+use inplace=True for inplace opn
+
+df['States']=["Ab","BC","CD","DE","EF"]
+
+df.set_index('States') //Sets index to States. Here old column gone unlike reset_index() which retains it
+
