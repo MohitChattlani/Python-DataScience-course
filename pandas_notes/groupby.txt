@@ -1,0 +1,30 @@
+Groupby- Used to group together rows based on column and call aggregate fns like in SQL
+
+Aggregate fn- takes many values and outputs a single value like Sum, Average, SD
+
+
+Groupby with pandas
+
+# Create dataframe
+data = {'Company':['GOOG','GOOG','MSFT','MSFT'],
+       'Person':['Sam','Charlie','Amy','Vanessa'],
+       'Sales':[200,120,340,124]}
+
+df=pd.Dataframe(data)
+	Company		Person    Sales
+0     GOOG      Sam       200
+1     GOOG      Charlie   120
+2	  MSFT      Amy       340
+3     MSFT      Vanessa   124
+
+#by default takes numeric i.e. Sales
+df.groupby('Company').sum().loc['MSFT']
+df.groupby('Company').min()
+df.groupby('Company').max('Sales')
+df.groupby('Company').count()
+
+df.groupby('Company').describe()
+
+df2.groupby('Company').describe()["Sales"][["count","mean"]]
+
+df2.groupby('Company').describe().transpose()	

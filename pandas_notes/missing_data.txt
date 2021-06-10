@@ -1,0 +1,50 @@
+
+
+if you read data and it has some missing points pandas will add Null/NaN
+
+d={'A':[1,2,np.nan],'B':[5,np.nan,np.nan],'C':[1,2,3]}
+
+df=pd.DataFrame(d)
+	A     B     C
+0   1	  5		1
+1   2     NaN   2
+2   NaN   NaN   3
+
+
+#this will drop rows that have 1 or more missing values
+df.dropna()
+	A    B    C
+0   1    5    1
+
+#For columns
+df.dropna(axis=1)
+	C
+0   1
+1	2
+2	3
+
+#for threshold. It must have atleast two non-Na values
+
+df.dropna(thresh=2)
+	A     B      C
+0   1     5      1
+1   2     NaN    2
+
+df.fillna(value="FV")
+
+df   A     B     C
+0	 1     5     1
+1    2     FV    2 
+2	 FV    FV    3
+
+df['A'].fillna(value=df['A'].mean())
+
+df   A
+0    1
+1    2
+2    1.5
+
+
+
+
+

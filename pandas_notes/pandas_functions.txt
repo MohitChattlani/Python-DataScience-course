@@ -1,0 +1,56 @@
+#Unique values
+
+df['col2'].unique()
+
+returns numpy array of all the unique values in col2
+
+len(df['col2'].unique()) / df['col2'].nunique()
+
+returns no. of unique values in col2
+
+#how many times each unique value occured
+
+df['col2'].value_counts()
+
+#conditional selection
+
+df[df['col1']>2] - Will return df where col1>2
+
+#apply method- helps to broadcast fn to each element in column
+
+
+def times2(x):
+return x*2
+
+df['col1'].sum()
+df['col1'].apply(times2) #applying custom function
+
+df['col3'].apply(len)  #applying length built in fn to each element(string)
+
+df['col2'].apply(lambda x: x*2)
+
+#to drop column
+
+df.drop('col1',axis=1)
+
+#to get column/index names
+
+df.columns
+
+Index(['col1','col2','col3']),dtype='object')
+
+df.index
+
+RangeIndex(start=0,stop=4,step=1)
+
+#sort by column
+df.sort_values(by='col2')
+
+#to find null vals in df
+
+df.isnull() -> returns boolean df indicating value was null or not
+
+# to create pivot table like in excel
+index here is multi level index
+
+df.pivot_table(values="D",index=['A','B'],columns=['C'])

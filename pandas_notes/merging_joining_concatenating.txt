@@ -1,0 +1,34 @@
+Concatenation
+
+glues together df. Dimensions should match along the axis you are concatenating on. 
+
+#by default axis is 0.(It will join rows together)
+pd.concat([df1,df2,df3])
+
+   A  B   C   D
+0  A0 B0  C0  D0
+1  A1 B1
+2  A2
+
+axis=1 for columns
+
+Check notebook for o/ps
+
+Merging
+
+The merge function allows you to merge DataFrames together using a similar logic as merging SQL Tables together. For example:
+
+pd.merge(left,right,how="inner",on="key")
+
+#multiple keys
+pd.merge(left, right, on=['key1', 'key2'])
+
+pd.merge(left, right, how='outer', on=['key1', 'key2'])
+
+Joining
+
+Joining is a convenient method for combining the columns of two potentially differently-indexed DataFrames into a single result DataFrame.
+
+left.join(right)
+
+left.join(right, how='outer')

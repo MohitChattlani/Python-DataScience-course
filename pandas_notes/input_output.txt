@@ -1,0 +1,49 @@
+File formats
+
+*CSV, Excel, html, SQL
+
+conda install sqlalchemy
+
+df=pd.read_csv('example.csv')
+
+df.to_csv('My_output',index=False) #As i don't want to save default index as column in csv file
+
+pd.read_csv('My_output')
+
+#pandas can't import excel formulas, macros etc pd.read_excel can crash
+
+conda install xlrd
+
+Workbook is a bunch of sheets and each sheet is a data frame
+
+df=pd.read_excel('Excel_Sample.xlsx',sheetname='Sheet1')
+
+df.to_excel('Excel_Sample2.xlsx',sheet_name="NewSheet")
+
+conda install lxml
+conda install html5lib
+conda install BeautifulSoup4
+
+#This will work only if you have the above libraries
+data=pd.read_html("https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/")
+
+This will try to find all <table> elements and try to convert each one of them to dataframe
+
+Use specific driver for your specific SQL engine.
+
+If POSTGRESQL you should use library called psychopg2
+
+pymysql for MySQL.
+
+#it helps you to create a temporary, simple SQL engine in memory
+from sqlalchemy import create_engine
+#pandas not the best source to read SQL directly
+
+
+engine=create_engine('sqlite:///:memory:') #sqlite engine database in memory
+
+#write
+df.to_sql('my_table',engine) #engine is a connection usually
+
+#read
+sqldf=pd.read_sql("my_table",con=engine)
