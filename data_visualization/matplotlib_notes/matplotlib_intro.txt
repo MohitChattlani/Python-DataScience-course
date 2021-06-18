@@ -1,0 +1,15 @@
+Intro
+
+* Most popular plotting library
+* Gives control over every aspect of figure
+* Has similar feel to MatLab's graphical plotting
+* Works well with pandas and numpy arrays
+
+pip install matplotlib
+
+https://matplotlib.org/
+
+Gallery
+
+
+

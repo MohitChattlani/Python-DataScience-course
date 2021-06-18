@@ -1,0 +1,29 @@
+Customizing the plot
+
+fig=plt.figure()
+ax=fig.add_axes([0,0,1,1])
+ax.plot(x,y,color='red',linewidth/lw=2,alpha=0.5,linestyle/ls="+/--/-./steps") #RGB hex code, alpha args for transparency on line
+
+marker- for marking the np.array points on plot
+
+ax.plot(x,y,marker="o/*",markersize=10,markerfacecolor="yellow",markeredgewidth=3,markeredgecolor="green")
+
+ax.plot(x,y,color="purple",lw=2,ls="--")
+
+Show plot btw 0 and 1 on x axis(Control over axis appearance)
+
+axes.axis('tight') #getting "tightly fitted" axes ranges
+
+ax.set_xlim([0,1]) #set lowerbound and upperbound
+
+ax.set_ylim([0,2])
+
+Special plot types
+
+barplots, histograms, scatter plots etc. More in seaborn(statistical plotting)
+
+plt.scatter(x,y)
+
+
+
+

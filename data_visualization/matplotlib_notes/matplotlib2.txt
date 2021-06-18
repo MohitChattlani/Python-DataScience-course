@@ -1,0 +1,40 @@
+Subplots using OOPS
+
+#tuple unpacking
+fig,axes=plt.subplots(nrows=1,ncols=2) #axes manager on top of plt.figure()
+#it adds_axes automatically based on nrows and ncols
+
+#axes is an array of matplotlib axes
+
+for current_ax in axes:
+    current_ax.plot(x,y)
+or
+axes[0].plot(x,y)
+
+axes[1].plot(y,x)
+
+plt.tight_layout() #fix overlapping
+
+Figure size, Aspect Ratio and DPI(Dots per inch)
+
+figsize: (width, height) tuple in inches
+fig=plt.figure(figsize=(3,2),dpi=100)
+
+#Saving a Figure
+
+fig.savefig("mypicture.png",dpi=200)
+
+Legends
+
+axes1=fig.add_axes([0,1,1,1])
+axes1.plot(x,x**2,label="X Squared")
+axes1.plot(x,x**3,label="X Cube")
+
+axes1.legend() #put labelled objects for this to work
+
+#To Avoid overlapping of legend
+
+ax.legend(loc=0) #for best placements
+
+#custom location for legend
+ax.legend(loc=(0.1,0.1))
