@@ -1,0 +1,26 @@
+
+
+
+sns.set_style("white"/"whitegrid"/"darkgrid"/"ticks")           #to set the style for the rest of your plots
+sns.countplot(x="sex",data=tips)
+sns.despine() #it will remove the top and right spine 
+sns.despine(left=True,bottom=True)
+
+
+plt.figure(figsize=(12,3))  #callback when seaborn calls matplotlib. matplotlib will set figure size for plot
+sns.countplot(x="sex",data=tips)
+
+Scale and cotext
+
+Change font scales
+#making for poster
+
+sns.set_context(context="poster",font_scale=3)
+
+#normal
+sns.set_context(context="notebook",font_scale=3)
+
+Palletes and colors
+
+sns.lmplot(x="total_bill",y="tip",data=tips,hue="sex",pallette="coolwarm") #for pallettes google matplotlib colormap (seismic) 
+

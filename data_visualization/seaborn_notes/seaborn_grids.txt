@@ -1,0 +1,32 @@
+
+
+Grids-> To automate subplots based off of features in our data.
+Grids are general types of plots that allow you to map plot types to rows and columns of a grid, this helps you create similar plots separated by features.
+
+iris=sns.load_dataset("iris")
+
+iris['species'].unique() #3 species possible(setosa, versicolor, virginica) 
+
+sns.pairplot(iris) #pairwise distribution
+
+Using seaborn's pair grid mechanism, we will be able to customise with a lot more control over the actual plot 
+
+g=sns.PairGrid(iris) #gives us empty pair grid(takes all numerical columns and grids them up)
+					pairplot is a simplified version of pairgrid
+
+g.map(plt.scatter)  #maps a scatter plot 
+
+
+#distribution on diagonal, scatter on upper, kdeplot on lower
+g.map_diag(sns.distplot)
+g.map_upper(plt.scatter)
+g.map_lower(sns.kdeplot)
+
+
+g=sns.FacetGrid(data=tips,col="time",row="smoker")
+
+g.map(sns.distplot,'total_bill')  #distplot needs only 1 arg
+
+do a distribution plot and separate results on the base of column, row that will be labelled on the graph
+
+g.map(plt.scatter,total_bill,'tip') #>1 arg total_bill and tip

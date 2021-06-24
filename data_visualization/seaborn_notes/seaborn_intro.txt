@@ -1,0 +1,19 @@
+
+Intro
+
+* Statistical plotting library built on top of matplotlib
+* Has beautiful default styles
+* Works well with pandas dataframe objects
+
+conda install seaborn
+
+pip install seaborn
+
+It is open source
+
+https://seaborn.pydata.org/
+
+Gallery
+
+Heatmap, Violin plots, grouped boxplots, Hexbin jointplots
+

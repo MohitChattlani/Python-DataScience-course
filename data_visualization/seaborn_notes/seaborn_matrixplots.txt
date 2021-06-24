@@ -1,0 +1,27 @@
+Matrix plots
+
+1) Primarily heatmaps way of showing matrix plots
+Data should already be in matrix form(variables on both col and rows)
+
+tc=tips.corr()   #correlation- this gives a matrix form
+column and index variable name indicates relevancy to col and index for the cell where they match
+
+sns.heatmap(tc,annot=True,cmap="coolwarm")  #colors in value based on some gradient scale, numbers related to each other
+annot- provides value as well along with colors
+cmap-color map
+
+fp=flights.pivot_table(index="month",columns="year",values="passengers")
+
+sns.heatmap(fp,cmap="magma",linecolor="white",linewidths=1)
+
+to separate boxes in heatmap
+
+2) Cluster map
+
+The clustermap uses hierarchal clustering(cluster cols and rows together based of their similarity) to produce a clustered version of the heatmap.
+
+sns.clustermap(fp,cmap="coolwarm", standard_scale="1")
+
+standard_scale - to normalize(0-1)
+
+clustering algo(Maths behind this method)

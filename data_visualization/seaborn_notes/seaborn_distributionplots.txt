@@ -1,0 +1,48 @@
+import seaborn as sns
+
+%matplotlib inline
+
+#seaborn comes with few datasets
+
+tips=sns.load_dataset('tips')
+
+1) distplot
+
+The distplot shows the distribution of a univariate(one variable) set of observations.
+
+sns.distplot(tips['total_bill'],kde=False,bins=30)
+
+We get histogram(distribution-y axis as counts and x axis as bill) & KDE(Kernel density estimation)
+
+Change bins for detailed graph
+
+2) jointplot() allows you to basically match up two distplots for bivariate(2 variables) data. With your choice of what kind parameter to compare with:“scatter”,“reg”,“resid”,“kde”,“hex”
+
+sns.jointplot(x='total_bill',y='tip',data=tips,kind="hex"/"reg"/"kde") #for (hex)hexagon distribution,reg(regression scatter plot with regression line also shows p value and pearson coefficient)-best linear fit to scatter point data
+
+kde relation in terms of density 
+
+we get 2 histograms and scatter plot showing relation between x and y(More bill more tip) 
+
+3) pairplot
+
+pairplot will jointplot all possible pairwise relationships across an entire dataframe (for the numerical columns) and supports a color hue argument (for categorical columns).  
+
+sns.pairplot(tips,hue='gender',pallete="coolwarm")
+
+4) rugplots are actually a very simple concept, they just draw a dash mark for every point on a univariate distribution. They are the building block of a KDE plot:
+
+distplot has bins(no. of dashes in bin appear as a number in bar value)
+
+sns.rugplot(tips['total_bill'])
+
+Wikipedia KDE(Kernel Density estimation)
+
+Rug plot -> Normal distribution on top of each oint -> Sum them(Normal distributions) along to get KDE 
+Normal/Gaussian distribution(Continuous Probability Dist)
+
+5) KDE plot only
+
+sns.kdeplot(tips['total_bill'])
+
+Most of the things done in one line of code. Would have taken multiple lines in matplotlib

@@ -1,0 +1,15 @@
+Regression Plots
+Seaborn has many built-in capabilities for regression plots, however we won't really discuss regression until the machine learning section of the course, so we will only cover the lmplot() function for now.
+
+lmplot allows you to display linear models, but it also conveniently allows you to split up those plots based off of features, as well as coloring the hue based off of features. change size and aspect ratio for seaborn plots.
+
+sns.lmplot(x="total_bill", y="tip",data=tips,hue="gender",markers=["o","v"],scatter_kws={'s':100})
+#scatter plot with linear fit
+#it is calling matplotlib under the hood. To affect a scatter plot pass scatter_kws.(dictionary with matplotlib args s for size) Refer doc
+
+sns.lmplot(x="total_bill", y="tip",data=tips,col="sex",row="time")
+now we have col plots separated by sex and time category(Natural way Grid cols adding col and row)
+
+sns.lmplot(x="total_bill", y="tip",data=tips,col="day",row="time",hue="gender")
+
+sns.lmplot(x="total_bill", y="tip",data=tips,col="day",hue="gender",aspect=0.6,size=8)

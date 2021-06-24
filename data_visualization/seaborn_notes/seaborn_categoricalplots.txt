@@ -1,0 +1,67 @@
+Categorical plots
+
+Distribution of categorical column like gender, day time in reference to numerical column(total_bill)
+
+1) Barplot
+These very similar plots allow you to get aggregate data off a categorical feature in your data. barplot is a general plot that allows you to aggregate the categorical data based off some function, by default the mean. Visualisation by a group by action
+
+x-> category y-> numeric
+sns.barplot(x="gender",y="total_bill",data=tips) #shows average mean of total_bill by each gender
+
+use estimator arg to change grouping/aggregation
+estimator=np.std
+
+#sd per gender who has more variance?
+
+2) countplot
+This is essentially the same as barplot except the estimator is explicitly counting the number of occurrences. Which is why we only pass the x value:
+
+sns.countplot(x="gender",data=tips)
+
+3) boxplot and violinplot
+
+boxplots and violinplots are used to shown the distribution of categorical data. A box plot (or box-and-whisker plot) shows the distribution of quantitative data in a way that facilitates comparisons between variables or across levels of a categorical variable. The box shows the quartiles of the dataset while the whiskers extend to show the rest of the distribution, except for points that are determined to be “outliers” using a method that is a function of the inter-quartile range.
+
+sns.boxplot(x="day",y="total_bill",data=tips,hue='smoker')
+
+hue further splits by another category(here smoker or non smoker)
+
+sns.violinplot(x="day",y="total_bill",data=tips,hue="gender",split=True)
+
+split to split distribution-> One half one hue and other
+
+unline boxplot allows to plot all components that correspond to data points.Shows KDE of underlying distribution. Split in half shows distribution of points on side. Harder to interpret than box plot. Comparison easy in boxplot
+
+4) stripplot and swarmplot
+
+The stripplot will draw a scatterplot where one variable is categorical. A strip plot can be drawn on its own, but it is also a good complement to a box or violin plot in cases where you want to show all observations along with some representation of the underlying distribution.
+
+sns.stripplot(x="day",y="total_bill",data=tips,jitter=True,hue="gender",split=True)
+
+issue(don’t know how many points are exactly stacked on top of each other)
+jitter adds a bit of random noise to separate these stacked points i.e. provides more clarity
+
+split splits points based on hue argument
+
+Swarmplot
+
+(Strip + violin)  
+The swarmplot is similar to stripplot(), but the points are adjusted (only along the categorical axis) so that they don’t overlap. This gives a better representation of the distribution of values, although it does not scale as well to large numbers of observations (both in terms of the ability to show all the points and in terms of the computation needed to arrange them).
+
+sns.swarmplot(x="day",y="total_bill",data=tips)
+
+#Stack on top of each other
+sns.violinplot(x="day",y="total_bill",data=tips)
+sns.swarmplot(x="day",y="total_bill",data=tips,color="black")
+
+
+5) factorplot
+factorplot is the most general form of a categorical plot. It can take in a kind parameter to adjust the plot type:
+
+sns.factorplot(x="day",y="total_bill",data=tips,kind="bar") #will make barplot
+
+sns.factorplot(x="day",y="total_bill",data=tips,kind="violin") #will make violin
+
+Swarm, violin,stripplot not good for showing to exec. Good for EDA.
+
+Box plot good for showing to exec.
