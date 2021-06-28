@@ -11,7 +11,7 @@ sns.barplot(x="gender",y="total_bill",data=tips) #shows average mean of total_bi
 use estimator arg to change grouping/aggregation
 estimator=np.std
 
-#sd per gender who has more variance?
+#std per gender who has more variance?
 
 2) countplot
 This is essentially the same as barplot except the estimator is explicitly counting the number of occurrences. Which is why we only pass the x value:

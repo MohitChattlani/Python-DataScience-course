@@ -1,0 +1,55 @@
+import pandas as pd
+import seaborn as sns #for better design
+
+Used for quick analysis
+
+df1=pd.read_csv("df1",index_col)
+
+
+df1['A'].hist(bins=30)  #calls matplotlib behind the scenes
+
+df1['A'].plot(kind="hist",bins=30)
+
+df1['A'].plot.hist()
+
+df2.plot.area(alpha=0.4) #alpha for transparency (line plot filled in color below)
+
+df2.plot.bar(stacked=true) #index categorical stacked argument for stacking values
+
+#we have added matplotlib args
+df1.plot.line(x=df1.index,y="B",figsize=(12,3),lw=1)  #time series
+
+df1.plot.scatter(x='A',y='B',c='C',cmap="coolwarm") #3D info plot color value of C
+
+df1.plot.scatter(x='A',y='B',s=df1['C']*100) #how large c value is relative to each other
+
+df2.plot.box()  #boxplot
+
+df=pd.Dataframe(np.random.randn(1000,2),columns=['a','b'])
+
+df.plot.hexbin(x='a',y='b',gridsize=25,cmap="coolwarm")  #scatter plot with hexagonal bin
+
+df2['a'].plot.kde()
+
+df2['a'].plot.density()
+
+df2.plot.density()
+
+For customization use seaborn or matplotlib. Mostly histogram and lineplot are used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

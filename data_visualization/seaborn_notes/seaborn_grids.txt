@@ -25,8 +25,8 @@ g.map_lower(sns.kdeplot)
 
 g=sns.FacetGrid(data=tips,col="time",row="smoker")
 
-g.map(sns.distplot,'total_bill')  #distplot needs only 1 arg
-
+g.map(plt.hist, "total_bill")  #histplot needs only 1 arg
+	
 do a distribution plot and separate results on the base of column, row that will be labelled on the graph
 
-g.map(plt.scatter,total_bill,'tip') #>1 arg total_bill and tip
+g.map(plt.scatter,"total_bill",'tip') #>1 arg total_bill and tip

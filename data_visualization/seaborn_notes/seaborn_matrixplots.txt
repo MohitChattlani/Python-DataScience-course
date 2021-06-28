@@ -20,7 +20,7 @@ to separate boxes in heatmap
 
 The clustermap uses hierarchal clustering(cluster cols and rows together based of their similarity) to produce a clustered version of the heatmap.
 
-sns.clustermap(fp,cmap="coolwarm", standard_scale="1")
+sns.clustermap(fp,cmap="coolwarm", standard_scale=1)
 
 standard_scale - to normalize(0-1)
 

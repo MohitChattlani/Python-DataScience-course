@@ -38,7 +38,7 @@ sns.rugplot(tips['total_bill'])
 
 Wikipedia KDE(Kernel Density estimation)
 
-Rug plot -> Normal distribution on top of each oint -> Sum them(Normal distributions) along to get KDE 
+Rug plot -> Normal distribution on top of each point -> Sum them(Normal distributions) along to get KDE 
 Normal/Gaussian distribution(Continuous Probability Dist)
 
 5) KDE plot only

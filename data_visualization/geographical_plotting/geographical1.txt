@@ -1,0 +1,10 @@
+
+* Challenging due to the various formats the data can come in
+
+* we will use plotly for interactive visualisations
+
+Choropleth maps (USA)
+
+
+
+

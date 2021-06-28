@@ -1,0 +1,32 @@
+Plotly
+
+Interactive visualization library
+
+Cufflinks
+
+Connects plotly with pandas
+
+pip install plotly 
+
+pip install cufflinks
+
+df3 = pd.DataFrame({'x':[1,2,3,4,5],'y':[10,20,30,20,10],'z':[5,4,3,2,1]})
+df3.iplot(kind='surface',colorscale='rdylbu')
+
+Spread for stock data
+df[['A','B']].iplot(kind='spread') #stock data
+
+Line plot and spread plot below. To see spread btw 2 stocks
+
+df.iplot(kind='bubble',x="A",y="B",size="C") #world GDP, happiness factor
+
+df.scatter_matrix() #makes scatter matrix for all possible columns(should be numeric)
+
+Technical analysis capabilities are also there in cufflinks(beta)
+
+Advanced-Financial analysis, such as moving avgs, correlation btw stocks
+
+
+
+
+
