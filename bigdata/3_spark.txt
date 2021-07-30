@@ -1,0 +1,117 @@
+Big data with Spark
+
+Spark one of the popular library used for bigdata.
+
+Continuously developed and new releases come often
+
+Spark powers a stack of libraries including SQL and DataFrames, MLlib for machine learning, GraphX, and Spark Streaming. You can combine these libraries seamlessly in the same application.
+
+Spark runs on standalone cluster mode, on EC2, Hadoop YARN, Apache Mesos, Kubernetes, or in the cloud. It can access diverse data sources like HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
+
+Setup aws to use spark. (whole idea of spark is that you no longer need to use local machine, you need to use distributed set of machines that can be accessed through cloud service)
+
+Spark
+
+*Latest tech used to quickly and easily handle big data
+
+*Open source project on Apache
+
+*Released in Feb 2013. Easy to use + speed
+
+*Created at the AmpLab at UC Berkeley
+
+*Flexible alternative to MapReduce. Not a replacement for Hadoop. provides unified soln to manage big data use cases & requiremnts
+
+*It can use data stored in various formats
+->Cassandra, AWS S3, HDFS, etc.
+
+Spark vs MapReduce
+
+*MapReduce requires file to be stored in HDFS unlike spark.
+
+*Spark can perform operations upto 100x faster than MapReduce.
+
+->MapReduce writes most data to disk after each map and reduce opn
+
+->Spark keeps most of data in memory(RAM) after each transformation
+
+->Spark can spill data to disk if memory is filled
+
+*Core of spark is the idea of RDD(Resilient Distributed Dataset)
+
+RDD features:
+*Distributed collection of data
+*Fault-tolerant
+*Parallel operation-partitioned
+*Ability to use many data sources
+
+Spark RDDs
+
+Driver Program
+--- (Spark context)
+| |
+| Cluster manager
+| |  |            | 
+--- Worker Node   Worker Node   - these execute tasks/computations on data
+(Executor,task2,task1,cache)
+- |
+(Executor,Cache,task1,task2)
+
+Driver prog operates spark context that communicates with cluster manager which communicate with worker nodes which execute task(computations on data)
+
+
+RDD objects  ->(DAG)       DAG Scheduler	->(Taskset)		  Task scheduler->(Task)	    Worker					
+rdd1.join()               Split graph into stages of tasks    Cluster manager			Threads,
+.groupby()													  (Launch tasks)		Block manager
+.filter()
+						  submit each stage as ready		  retry failed tasks  	execute task, 
+build operator DAG																store,serve block
+(Directed acyclic graph)
+
+
+Spark helps developer to develop complex multi step data pipeline using DAG. Supports in memory data sharing across DAGs so that diff jobs can work with same data
+
+
+We are concerned with RDD objects. Everything else will occur under the hood for us.
+
+
+* RDDs are immutable, lazily evaluated and cacheable
+* Two types of RDD ops- Transformations & actions
+
+Basic Actions: First, collect, Count, Take
+
+Collect- Return all the elements of the RDD as an array at driver prog
+Count- return number of elems in RDD
+First- return the first element in RDD
+Take- Return an array with first N elems of RDD
+(Methods in python)
+
+Transformations
+Filter, Map and FlatMap
+
+RDD.filter()-Applies fn to each elem & returns elems that evaluates to true like python builtin filter fn
+
+RDD.map()-Transforms each elem & preserves # of elems similar to pandas.apply(). Eg: Grabbing first letter of a list of names
+
+RDD.flatMap()-Transforms each element into 0-N elements and changes # of elements. Eg: Transforming corpus of text into list of words. More elems in 2nd.
+
+Pair RDDs
+
+->Often RDDs will be holding their vals in tuples(key, value)
+
+->this offers better partitioning of data & leads to functionality based on reduction
+
+
+Reduce()
+
+An action that will aggregate RDD elems using fn that returns single statement
+
+ReduceByKey()
+
+An action that will aggregate Pair RDD elems using fn that returns Pair RDD
+
+Similar to groupby opn
+
+
+
+

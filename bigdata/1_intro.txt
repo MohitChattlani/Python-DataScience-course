@@ -1,0 +1,26 @@
+Big data
+
+We have worked with data that can fit on local computer (0-8 GB) i.e. data that can fit on RAM
+
+Large Data. What to do?
+
+1) Use SQL Database to move storage to Hard drive instead of RAM
+
+2) Use distributed system, that distributes data to multiple machines/computer.
+
+One machine/master node controlling distribution of multiple machines. Advantages: more processing power and memory than a single local machine.
+
+					M(Master node) 
+	M   M   M   M        M    M    M    M  (Other nodes distributed)
+
+*A local process use computation resources of single machine
+
+*A distributed process has access to computational resources across number of machines connected through a network
+
+*After certain point it is easier to scale out to many lower CPU machines than to try to scale up to single machine with high CPU
+
+*Easy scaling in distributed system, you can add more machines
+
+*They also include fault tolerance, if one machine fails, the whole n/w can still go on
+
+

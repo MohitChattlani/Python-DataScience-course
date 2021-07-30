@@ -1,0 +1,43 @@
+Lambda expressions
+
+Used with spark and RDDs
+
+helps to create adhoc fns without properly defining fns using def
+
+#1
+def square(num):
+return num**2
+
+#2
+
+def square(num):return num**2
+
+#3 anonymous lambda fns
+
+lambda num:num**2
+
+sq=lambda num:num**2
+
+sq(5)  #25
+
+even=lambda num:num%2==0
+
+even(3) #False
+
+#strings
+
+first=lambda s:s[0]
+
+first('abc')
+
+rev=lambda s:s[::-1]
+
+rev('abc') #cba
+
+#more than 1 argument into lambda expression
+
+adderlam=lambda x,y:x+y
+
+adderlam(3,3)
+
+Usually lambda expressions are not assigned they are used with methods like map,filter,reduce,apply methods which are transformations with spark rdds.

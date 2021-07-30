@@ -1,0 +1,66 @@
+RDD transformations & Actions
+
+Spark job- Sequence of transformations on data with a final action
+RDD->Transformation->Action
+
+sc.parallelize(array) Creates RDD of elements of array/list
+
+1) filter
+
+2) map(lambda x:x*2) #multiply each RDD elem by 2
+
+3) map(lambda x:x.split()) #split strings into words
+
+3) flatMap(lambda x:x.split()) #split strings into words and flatten sequence
+
+4) sample(withReplacement=True, 0.25) #Create sample of 25% of elements with replacement
+
+5) union(rdd) #append rdd to existing RDD
+
+6) distinct() #Remove duplicates in RDD
+
+7) sortby(lambda x:x,ascending=False) #Sort elements in descending order
+
+RDD actions
+
+1) collect() #Convert RDD to in-memory list
+
+   
+2) take(3) #First 3 elements of RDD
+
+3) top(3) #Top 3 elems of RDD
+
+4) takeSample(withReplacement=True,3) #Create sample of 3 elements with replacement
+
+5) sum() #Find element sum(assumes numeric elems)
+
+6) mean() #Find element mean(assumes numeric elems)
+
+6) stdev() #Find element deviation(assumes numeric elems)
+
+#as continue in earlier notebook
+text_rdd=sc.TextFile('example2.txt') #reference to rdd
+
+#lambda fn
+
+words=text_rdd.map(lambda line:line.split())
+
+words.collect()  #[['first'],['second','line']]
+
+text_rdd.collect() #['first','second line']
+
+text_rdd.flatMap(lambda line:line.split()).collect() #['first','second','line'] single array of all words
+
+
+#key value pair RDDS
+
+
+#by key ops Pair RDDs
+
+tuple pairs what we need for pair rdds command to work(reducebykey statement)
+
+pairs.reducebyKey(lambda amt1,amt2: amt1+amt2) #assumes first column is key and lamda as reduction of 2nd column amt 1 and amt2 are 2 row numbers in 2nd col
+
+pairs.reducebyKey(lambda amt1,amt2: float(amt1)+float(amt2))
+
+#sorting o/p

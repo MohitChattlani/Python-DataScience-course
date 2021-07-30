@@ -1,0 +1,72 @@
+AWS
+
+EC2- Virtual computer.
+Free tier-t2.micro instance usage 750 hr pmonth free limit. Shut things down after using it. Don't keep instance running.
+
+Exploring AWS and EC2
+
+When we set up the EC2 instance and configure the security groups setting for these spot instances we keep all the ports open for simplicity, but it should be noted that these settings should be much more strict if put in production environment. 
+
+Putty
+
+It is used to SSH connect to your EC2 Linux instance from Windows. Real connection to virtual computer hosted somewhere through command line.
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
+
+
+AWS EC2(Elastic Compute Cloud) a web service that provides resizable compute capacity in the cloud. Virtual computer that can be accessed through internet.
+
+1) Create EC2 instance on AWS
+2) Use SSH(secure shell connection) to connect to EC2 over internet
+3) Setup spark and Jupyter on EC2 instance. Download Java, Scala, Hadoop, Spark, jupyter notebook, anaconda
+
+Local <------SSH> AWS EC2 
+
+
+
+After connecting instance
+
+Setting up spark, python, hadoop and jupyter notebook on EC2 virtual instance.
+
+https://medium.com/@josemarcialportilla/getting-spark-python-and-jupyter-notebook-running-on-amazon-ec2-dec599e1c297
+
+which python- to check which python are we using
+
+1) downloaded & installed Anaconda, python
+2) Switched python to actual anaconda python
+3) Jupyter comes with anaconda but it needs to be configured to use with EC2 and connect with SSH
+
+Using vi change jupyter config file
+
+I->Insert
+Esc -> :wq! (Exit)
+
+Run jupyter notebook
+
+open PublicDNS:8888(jupyter notebook will open. It is running on ec2 instance hosted by aws)
+
+Installing Spark
+
+Spark is written in scala so install scala. and scala depends on java so install java.
+
+sudo apt-get update
+
+sudo apt-get install default-jre
+
+java -version
+
+sudo apt-get install scala (scala)
+
+need to make sure that pip install is connected to anaconda distribution instead of default
+conda install pip
+
+pip install py4j
+(py4j allows python to connect to java)
+
+
+Install spark and hadoop
+
+
+
+
+

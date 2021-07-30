@@ -1,0 +1,53 @@
+Distributed architechture that uses Hadoop
+
+* Hadoop is a way to distribute very large files across multiple machines.
+
+* It uses Hadoop distributed File System(HDFS)
+
+* HDFS allows user to work with large data sets
+
+* HDFS also duplicates block of data for fault tolerance
+
+* It also then uses MapReduce
+
+* MapReduce allows computations on that data
+
+
+					Main Name Node(CPU, RAM)
+					| 						|					|
+		Data Node(CPU, RAM)			Data Node(CPU, RAM)    Data Node(CPU, RAM)
+
+*HDFS will use blocks of data(128Mb by default)
+
+*Each block replicated 3 times
+
+*Distributed in a way to support fault tolerance(If one lower Data node is knocked out we have it replicated on other nodes)
+
+*Smaller blocks provide more parallelization during processing
+
+*Multiple copies of a block prevent loss of data due to failure of node
+
+MapReduce
+
+*It is a way of splitting a computation task to distributed set of files(like HDFS)
+
+*It consist of Job Tracker and multiple task trackers
+
+							Job Tracker (CPU,RAM)
+							|					|						|
+				Task Tracker(CPU,RAM)        Task Tracker(CPU,RAM)     Task Tracker(CPU,RAM)
+
+*The Job tracker sends code to run on task trackers
+
+*Task trackers allocate CPU and memory for the tasks & monitor the tasks on worker nodes
+
+
+Summary
+
+1) Using HDFS to distribute large data sets
+
+2) Using MapReduce to distribute computational task to a distributed data set
+
+Latest technology in this space is Spark
+
+Spark improves on the concepts of using distribution

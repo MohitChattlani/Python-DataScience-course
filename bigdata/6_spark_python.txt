@@ -1,0 +1,50 @@
+Python and spark with pyspark
+
+#create sparkcontext represents connection to spark cluster
+from pyspark import SparkContext
+
+it can be used to create RDD and broadcast variables on that cluster. you can have 1 sparkcontext at a time the way we are running
+
+sc=SparkContext()
+
+#write a text file
+%%writefile example.txt
+first line
+second line
+third line
+fourth line
+
+#creating RDD- take text file using text file method of sparkcontext we created. that will read a text file from HDFS local file system and return it as RDD of strings
+
+textFile=sc.textFile('example.txt') #rdd of lines from file creation. we can perform ops now
+
+#we can perform actions/transformations on RDD object. Actions return values and transformations return pointers to new RDD 
+
+textFile.count() #count no. of elements in RDD 4
+
+textFile.first() #grabs first object back from RDD 'first line'
+
+##Transformations
+
+1. Filter transformations - to return new RDD(subset of items in file)
+
+#filter method similar to python's filter fn returns elems that satisfy condition
+
+secfind=textFile.filter(lambda line:'second' in line) #very fast- Reason RDD's are lazily evaluated. you don't execute all those instructions of transformation until you perform action. (Transformation like recipe)
+
+secfind #pythonRDD[4] at RDD at pythonRDD.scala:43 . It is a python RDD. it has recipe of instructions to follow but it does not execute them until you ask for the performance of action
+
+secfind.collect() #action on transformation
+
+secfind.count()
+
+
+
+
+
+
+
+
+
+
+
